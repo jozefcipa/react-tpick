@@ -11,6 +11,9 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: './tsconfig.json',
-  }
+  },
+  rules: {
+    'max-len': ['warn', 130, 2],
+    'import/no-unresolved': 'off', // TODO: temp fix
+  },
 }
-

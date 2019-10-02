@@ -1,6 +1,6 @@
 {
   "name": "react-tpick",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "repository": {
@@ -15,14 +15,19 @@
   "license": "MIT",
   "types": "dist/index.d.ts",
   "devDependencies": {
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
     "@strv/eslint-config-react": "^3.0.2",
     "@strv/eslint-config-typescript": "^2.1.2",
     "@types/react": "^16.9.2",
     "@types/react-dom": "^16.8.5",
     "@types/styled-components": "^4.1.19",
     "eslint": "^6.4.0",
+    "husky": "^3.0.8",
+    "lint-staged": "^10.0.0-0",
     "rollup": "^1.19.4",
     "rollup-plugin-typescript2": "^0.22.1",
+    "semantic-release": "^15.13.24",
     "tslib": "^1.10.0",
     "typescript": "^3.6.3"
   },
@@ -34,9 +39,26 @@
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c -w",
-    "lint": "eslint ./src/**/*.ts ./src/**/*.tsx"
+    "lint": "eslint ./src/**/*.ts ./src/**/*.tsx",
+    "lint:fix": "yarn lint --fix",
+    "semantic-release": "semantic-release"
   },
   "files": [
     "dist"
-  ]
+  ],
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.(ts|tsx)": [
+      "yarn lint:fix",
+      "git add"
+    ]
+  }
 }

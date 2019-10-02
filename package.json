@@ -12,6 +12,7 @@
     "email": "cipajozef@gmail.com",
     "url": "https://jozefcipa.com"
   },
+  "keywords": ["react", "time picker", "time"],
   "license": "MIT",
   "types": "dist/index.d.ts",
   "devDependencies": {
@@ -42,8 +43,7 @@
     "build": "rollup -c",
     "watch": "rollup -c -w",
     "lint": "eslint ./src/**/*.ts ./src/**/*.tsx",
-    "lint:fix": "yarn lint --fix",
-    "semantic-release": "semantic-release"
+    "lint:fix": "yarn lint --fix"
   },
   "files": [
     "dist"

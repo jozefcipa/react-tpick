@@ -14,6 +14,7 @@ module.exports = {
   },
   rules: {
     'max-len': ['warn', 130, 2],
+    'import/group-exports': 'off',
     'import/no-unresolved': 'off', // TODO: temp fix
   },
 }

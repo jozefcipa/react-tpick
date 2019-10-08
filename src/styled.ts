@@ -41,5 +41,5 @@ export const UpButton = styled(Button)`
 `
 
 export const DownButton = styled(Button)`
-    background-image: url(${'downCaret'});    
+    background-image: url(${'downCaret'}); 
 `

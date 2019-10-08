@@ -1,104 +1,60 @@
 import * as React from 'react'
+import { useTime } from './hooks'
 import { Switch, Container, Input, UpButton, DownButton } from './styled'
-import { value } from './utils'
-import { Props, ChangeValueParams } from './types'
+import { timeStringValue } from './utils'
+import { Props, UpdateTimeSegment } from './types'
 
-const TimePicker = (props: Props) => {
-  const [hours, setHours] = React.useState(props.hours)
-  const [minutes, setMinutes] = React.useState(props.minutes)
+const TimePicker: React.FC<Props> = (props: Props) => {
+  const [time, actions] = useTime({
+    hours: props.hours,
+    minutes: props.minutes,
+  })
 
-  // TODO: refactor these functions, move it to separate hooks
-  const increment = ({ minutesValue, hoursValue, step }: ChangeValueParams) => {
-    const newTime = {
-      hours,
-      minutes,
-    }
-    if (typeof hoursValue !== 'undefined') {
-      if (step > 23) {
-        throw Error('Hours step cannot be larger than 23')
-      }
-      const newHours = hoursValue + step
-      if (newHours > 23) {
-        newTime.hours = 0
-      } else {
-        newTime.hours = newHours
-      }
-      setHours(newTime.hours)
-    }
-    if (typeof minutesValue !== 'undefined') {
-      if (step > 59) {
-        throw Error('Minutes step cannot be larger than 59')
-      }
-      const newMinutes = minutesValue + step
-      if (newMinutes > 59) {
-        // TODO: increment hours
-        newTime.minutes = 0
-      } else {
-        newTime.minutes = newMinutes
-      }
-      setMinutes(newTime.minutes)
-    }
-    props.onChange(newTime)
-  }
+  // step
+  const [hoursStep, setHoursStep] = React.useState(props.hoursStep || 1)
+  const [minutesStep, setMinutesStep] = React.useState(props.minutesStep || 1)
 
-  const decrement = ({ minutesValue, hoursValue, step }: ChangeValueParams) => {
-    const newTime = {
-      hours,
-      minutes,
-    }
-    if (typeof hoursValue !== 'undefined') {
-      if (step > 23) {
-        throw Error('Hours step cannot be larger than 23')
-      }
-      const newHours = hoursValue - step
-      if (newHours < 0) {
-        newTime.hours = 23
-      } else {
-        newTime.hours = newHours
-      }
-      setHours(newTime.hours)
-    }
-    if (typeof minutesValue !== 'undefined') {
-      if (step > 59) {
-        throw Error('Minutes step cannot be larger than 59')
-      }
-      const newMinutes = minutesValue - step
-      if (newMinutes < 0) {
-        // TODO: decrement hours
-        newTime.minutes = 60 - step
-      } else {
-        newTime.minutes = newMinutes
-      }
-      setMinutes(newTime.minutes)
-    }
-    props.onChange(newTime)
-  }
+  // update step timeStringValue
+  React.useEffect(() => {
+    setHoursStep(props.hoursStep || 1)
+    setMinutesStep(props.minutesStep || 1)
+  }, [props.hoursStep, props.minutesStep])
 
   React.useEffect(() => {
-    setHours(props.hours)
-    setMinutes(props.minutes)
-  }, [props])
+    actions.setTime({
+      hours: props.hours,
+      minutes: props.minutes,
+    })
+  }, [props]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <Container>
       <Switch>
-        <UpButton onClick={() => increment({ hoursValue: hours, step: props.hoursStep || 1 })} />
-        <Input
-          type="text"
-          value={value(hours)}
-          disabled
-        />
-        <DownButton onClick={() => decrement({ hoursValue: hours, step: props.hoursStep || 1 })} />
+        <UpButton
+          onClick={() => props.onChange(actions.increment({ update: UpdateTimeSegment.Hours, step: hoursStep }))}
+        >
+          +
+        </UpButton>
+        <Input type="text" value={timeStringValue(time.hours)} disabled />
+        <DownButton
+          onClick={() => props.onChange(actions.decrement({ update: UpdateTimeSegment.Hours, step: hoursStep }))}
+        >
+          -
+        </DownButton>
       </Switch>
       <span>:</span>
       <Switch>
-        <UpButton onClick={() => increment({ minutesValue: minutes, step: props.minutesStep || 1 })} />
-        <Input
-          type="text"
-          value={value(minutes)}
-          disabled
-        />
-        <DownButton onClick={() => decrement({ minutesValue: minutes, step: props.minutesStep || 1 })} />
+        <UpButton
+          onClick={() => props.onChange(actions.increment({ update: UpdateTimeSegment.Minutes, step: minutesStep }))}
+        >
+          +
+        </UpButton>
+        <Input type="text" value={timeStringValue(time.minutes)} disabled />
+        <DownButton
+          onClick={() => props.onChange(actions.decrement({ update: UpdateTimeSegment.Minutes, step: minutesStep }))}
+        >
+          -
+        </DownButton>
       </Switch>
     </Container>
   )

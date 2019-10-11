@@ -32,29 +32,21 @@ const TimePicker: React.FC<Props> = (props: Props) => {
       <Switch>
         <UpButton
           onClick={() => props.onChange(actions.increment({ update: UpdateTimeSegment.Hours, step: hoursStep }))}
-        >
-          +
-        </UpButton>
+        />
         <Input type="text" value={timeStringValue(time.hours)} disabled />
         <DownButton
           onClick={() => props.onChange(actions.decrement({ update: UpdateTimeSegment.Hours, step: hoursStep }))}
-        >
-          -
-        </DownButton>
+        />
       </Switch>
       <span>:</span>
       <Switch>
         <UpButton
           onClick={() => props.onChange(actions.increment({ update: UpdateTimeSegment.Minutes, step: minutesStep }))}
-        >
-          +
-        </UpButton>
+        />
         <Input type="text" value={timeStringValue(time.minutes)} disabled />
         <DownButton
           onClick={() => props.onChange(actions.decrement({ update: UpdateTimeSegment.Minutes, step: minutesStep }))}
-        >
-          -
-        </DownButton>
+        />
       </Switch>
     </Container>
   )

@@ -1,5 +1,6 @@
 import typescript from 'rollup-plugin-typescript2'
 import pkg from './package.json'
+import svg from 'rollup-plugin-svg'
 
 export default [
   {
@@ -10,6 +11,7 @@ export default [
         typescript: require('typescript'),
         objectHashIgnoreUnknownHack: true,
       }),
+      svg({ base64: true })
     ],
     output: [
       { file: pkg.main, format: 'cjs' },

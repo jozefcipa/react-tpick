@@ -12,7 +12,11 @@
     "email": "cipa.jozef@gmail.com",
     "url": "https://jozefcipa.com"
   },
-  "keywords": ["react", "time picker", "time"],
+  "keywords": [
+    "react",
+    "time picker",
+    "time"
+  ],
   "license": "MIT",
   "types": "dist/index.d.ts",
   "devDependencies": {
@@ -29,6 +33,7 @@
     "husky": "^3.0.8",
     "lint-staged": "^10.0.0-0",
     "rollup": "^1.19.4",
+    "rollup-plugin-svg": "^2.0.0",
     "rollup-plugin-typescript2": "^0.22.1",
     "semantic-release": "^15.13.24",
     "tslib": "^1.10.0",

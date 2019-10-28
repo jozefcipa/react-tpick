@@ -1,7 +1,7 @@
-# [1.2.0](https://github.com/jozefcipa/react-tpick/compare/v1.1.0...v1.2.0) (2019-10-02)
+# 1.2.0 (2019-10-28)
 
 
 ### Features
 
-* setup github actions ([9e866b1](https://github.com/jozefcipa/react-tpick/commit/9e866b1))
-* setup github actions ([ef8b1e7](https://github.com/jozefcipa/react-tpick/commit/ef8b1e7))
+* replace +/- with icons ([4569eaa](https://github.com/jozefcipa/react-tpick/commit/4569eaaf1f3ee72e3cf905670885725bdfdcf662))
+* setup github actions ([e169ede](https://github.com/jozefcipa/react-tpick/commit/e169ede48e7f44d7b1f8255a794c750de37bfb21))

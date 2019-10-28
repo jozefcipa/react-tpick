@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="sc-bwzfXH hSZadk"
+>
+  <div
+    className="sc-bxivhb dzPXKO"
+  >
+    <span
+      className="sc-bdVaJa sc-ifAKCX QmPtq"
+      onClick={[Function]}
+    />
+    <input
+      className="sc-htpNat cmIQeZ"
+      disabled={true}
+      type="text"
+      value="10"
+    />
+    <span
+      className="sc-bdVaJa sc-EHOje exncpR"
+      onClick={[Function]}
+    />
+  </div>
+  <span>
+    :
+  </span>
+  <div
+    className="sc-bxivhb dzPXKO"
+  >
+    <span
+      className="sc-bdVaJa sc-ifAKCX QmPtq"
+      onClick={[Function]}
+    />
+    <input
+      className="sc-htpNat cmIQeZ"
+      disabled={true}
+      type="text"
+      value="45"
+    />
+    <span
+      className="sc-bdVaJa sc-EHOje exncpR"
+      onClick={[Function]}
+    />
+  </div>
+</div>
+`;

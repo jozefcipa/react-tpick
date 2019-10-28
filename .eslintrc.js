@@ -2,6 +2,9 @@
 
 module.exports = {
   plugins: ['react', '@typescript-eslint'],
+  env: {
+    jest: true,
+  },
   extends: [
     '@strv/eslint-config-typescript',
     '@strv/eslint-config-typescript/style',

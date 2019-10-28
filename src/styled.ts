@@ -2,6 +2,15 @@ import styled from 'styled-components'
 import upCaret from './assets/up-caret.svg'
 import downCaret from './assets/down-caret.svg'
 
+const Button = styled.span`
+  align-self: stretch;
+  background-repeat: no-repeat;
+  background-size: 0.625rem;
+  background-position: center;
+  height: 0.625rem;
+  cursor: pointer;
+`
+
 export const Container = styled.div`
   width: 3.125rem;
   display: flex;
@@ -26,19 +35,10 @@ export const Switch = styled.div`
   justify-content: center;
 `
 
-const Button = styled.span`
-  align-self: stretch;
-  background-repeat: no-repeat;
-  background-size: 0.625rem;
-  background-position: center;
-  height: 0.625rem;
-  cursor: pointer;
-`
-
 export const UpButton = styled(Button)`
-    background-image: url(${upCaret});
+  background-image: url(${upCaret});
 `
 
 export const DownButton = styled(Button)`
-    background-image: url(${downCaret});
+  background-image: url(${downCaret});
 `

@@ -27,7 +27,7 @@
     "@strv/eslint-config-react": "^3.0.2",
     "@strv/eslint-config-typescript": "^2.1.2",
     "@types/jest": "^24.0.20",
-    "@types/react": "^16.9.2",
+    "@types/react": "^16.9.15",
     "@types/react-dom": "^16.8.5",
     "@types/react-test-renderer": "^16.9.1",
     "@types/styled-components": "^4.1.19",

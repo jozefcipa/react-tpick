@@ -3972,9 +3972,9 @@ lines-and-columns@^1.1.6:
   version "1.1.6"
   resolved "https://registry.yarnpkg.com/lines-and-columns/-/lines-and-columns-1.1.6.tgz#1c00c743b433cd0a4e80758f7b64a57440d9ff00"
 
-lint-staged@^10.0.0-0:
-  version "10.0.0-0"
-  resolved "https://registry.yarnpkg.com/lint-staged/-/lint-staged-10.0.0-0.tgz#a712e7cb6f530aaa1fac6d7ccf125ef9426144e5"
+lint-staged@^10.0.0-1:
+  version "10.0.0-1"
+  resolved "https://registry.yarnpkg.com/lint-staged/-/lint-staged-10.0.0-1.tgz#137956f13610a3717d4b07a68ab85080826fa358"
   dependencies:
     chalk "^2.4.2"
     commander "^2.20.0"
